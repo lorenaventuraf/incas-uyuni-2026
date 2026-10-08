@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Incas &amp; Uyuni 2026</title>
+<meta name="description" content="Roteiro dia a dia da expedição de moto Governador Valadares → Peru → Bolívia → Governador Valadares.">
+<meta name="theme-color" content="#1c2530">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <div>
+      <div class="eyebrow">Expedição de moto · América do Sul</div>
+      <h1>Incas <span class="amp">&amp;</span> Uyuni <span class="yr">2026</span></h1>
+    </div>
+    <div id="status" class="status"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="mapbox" id="samap" aria-label="Mapa da rota na América do Sul"></div>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<nav class="days" id="days" aria-label="Dias da expedição"></nav>
+
+<main class="wrap">
+  <article id="day" class="day"></article>
+
+  <section class="panel" id="detail-map-panel">
+    <div class="panel-h">
+      <h2>Mapa detalhado do dia</h2>
+      <button class="btn ghost" id="loadmap">Carregar mapa</button>
+    </div>
+    <p class="muted small" id="map-hint">Precisa de internet. Sem sinal, use o mapa offline do app (OsmAnd) com o arquivo GPX.</p>
+    <div id="lmap" class="lmap" hidden></div>
+  </section>
+
+  <section class="panel" id="bolivia">
+    <h2>Bolívia — combustível e bloqueios</h2>
+    <ul class="check" data-group="bo">
+      <li><label><input type="checkbox" data-k="bo1"> <span>Encher tanque <b>e galões</b> no lado peruano de Desaguadero</span></label></li>
+      <li><label><input type="checkbox" data-k="bo2"> <span>Levar bolivianos em espécie (cartão nem sempre funciona em surtidor)</span></label></li>
+      <li><label><input type="checkbox" data-k="bo3"> <span>Passaporte e papéis da moto à mão em todo abastecimento</span></label></li>
+      <li><label><input type="checkbox" data-k="bo4"> <span>Toda noite: checar bloqueios (links "Estrada" de cada dia) e perguntar na recepção do hotel</span></label></li>
+      <li><label><input type="checkbox" data-k="bo5"> <span>Nunca tentar furar bloqueio — esperar ou voltar</span></label></li>
+      <li><label><input type="checkbox" data-k="bo6"> <span>Abastecer em todo posto com gasolina, mesmo com meio tanque</span></label></li>
+    </ul>
+    <div class="note">
+      <p><b>Preço para estrangeiro:</b> turistas com veículo próprio pagam gasolina e diesel a preço internacional. Postos de fronteira são obrigados a vender (DS 5106). Recusa: denunciar na ANH, linha gratuita <a href="tel:800106006">800 10 6006</a>. <span class="tag p">Provável</span></p>
+      <p><b>Situação em out/2026:</b> fim do subsídio do diesel ("dieselazo") em setembro, com anúncio de bloqueios por transportistas e agricultores. O preço diferenciado do diesel para placa estrangeira foi unificado em 07/10 — a regra da gasolina pode mudar. Confirme na véspera de entrar. <span class="tag p">Provável</span></p>
+    </div>
+  </section>
+
+  <section class="panel" id="borders">
+    <h2>Fronteiras</h2>
+    <div class="grid3">
+      <div class="card"><h3>Brasil → Peru · dia 06</h3><p class="small muted">Assis Brasil → Iñapari</p><ul class="small"><li>Passaporte ou RG aceito + CNH + PID</li><li>CRLV/CRLV-e + prova de propriedade</li><li>Autorização formal se não for o proprietário</li><li>CIT + SOAT peruano</li><li>Seguro com cobertura no Peru</li></ul></div>
+      <div class="card"><h3>Peru → Bolívia · dia 17</h3><p class="small muted">Desaguadero</p><ul class="small"><li>Formulário 249/A (SIVETUR) por moto</li><li>Documento pessoal + documento da moto</li><li>Guardar o formulário carimbado até a saída</li><li>Conferir horário de Desaguadero na véspera</li></ul></div>
+      <div class="card"><h3>Bolívia → Brasil · dia 22</h3><p class="small muted">Puerto Quijarro → Corumbá</p><ul class="small"><li>Chegar com boa margem de horário</li><li>Saída migratória + saída aduaneira das 4 motos</li><li>Confirmar a baixa do SIVETUR de cada moto</li></ul></div>
+    </div>
+  </section>
+
+  <section class="panel" id="help">
+    <h2>Assistência e emergência</h2>
+    <h3 class="sub">BMW Motorrad no caminho</h3>
+    <div id="bmw" class="list"></div>
+    <h3 class="sub">Telefones de emergência <span class="tag p">Provável — conferir</span></h3>
+    <div class="grid3 small">
+      <div class="card"><b>Brasil</b><br>SAMU 192 · Bombeiros 193<br>Polícia 190 · PRF 191</div>
+      <div class="card"><b>Peru</b><br>Polícia 105 · Bombeiros 116<br>SAMU 106</div>
+      <div class="card"><b>Bolívia</b><br>Polícia 110 · Bombeiros 119<br>Ambulância 118</div>
+    </div>
+    <p class="small muted">Regra de ouro: formação fixa (líder, intermediários, ferrolho). Se uma moto parar, o grupo inteiro para.</p>
+  </section>
+
+  <section class="panel legend">
+    <h2>Como ler esta página</h2>
+    <ul class="small">
+      <li><span class="tag c">Certo</span> cidade com posto conhecido. <span class="tag p">Provável</span> deve ter, confirmar na hora. <span class="tag s">Suposição</span> não conte com ele.</li>
+      <li>Km são estimativas a partir do roadbook. As coordenadas são o centro de cada cidade, não do posto: use os botões "Postos perto" para achar o posto.</li>
+      <li>Os ✓ de progresso ficam salvos <b>só neste celular</b>. Para avisar a família, use o botão verde "Chegamos" de cada dia.</li>
+      <li>Botões de busca abrem o Google Maps ao vivo (horário, avaliações, se está aberto).</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b>Node Data</b> · planejamento digital da expedição</div>
+    <div class="small muted">Governador Valadares/MG · versão de <span id="ver"></span>. Plano, não garantia de estrada livre — revisar condições na véspera e na manhã de cada trecho.</div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="samap.js"></script>
+<script src="routes.js" onerror="window.ROUTES=null"></script>
+<script src="vendor/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Node Data — Expedição Incas &amp; Uyuni 2026" xmlns="http://www.topografix.com/GPX/1/1">
+<metadata><name>Incas &amp; Uyuni 2026</name><desc>Rota dia a dia. Coordenadas = centro das cidades. Abra no OsmAnd ou BMW Motorrad Connected.</desc></metadata>
+<wpt lat="-19.619" lon="-43.2269"><name>⛽ Itabira</name><desc>Dia 1 · km 175 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.9167" lon="-43.9345"><name>⛽ Belo Horizonte (Anel)</name><desc>Dia 1 · km 270 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.736" lon="-45.2525"><name>⛽ Bom Despacho</name><desc>Dia 1 · km 420 · confiança: certo · Ponto extra — o roadbook pulava de BH (324) para Araxá (600): 276 km.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.5902" lon="-46.9438"><name>⛽ Araxá</name><desc>Dia 1 · km 620 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.7472" lon="-47.9381"><name>⛽ Uberaba</name><desc>Dia 1 · km 735 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.4192" lon="-49.2151"><name>⛽ Itumbiara</name><desc>Dia 2 · km 125 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.7923" lon="-50.9192"><name>⛽ Rio Verde</name><desc>Dia 2 · km 340 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.8814" lon="-51.7144"><name>⛽ Jataí</name><desc>Dia 2 · km 435 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.5654" lon="-52.5537"><name>⛽ Mineiros</name><desc>Dia 2 · km 540 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.3147" lon="-53.2153"><name>⛽ Alto Araguaia</name><desc>Dia 2 · km 625 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.9654" lon="-54.9683"><name>⛽ Jaciara</name><desc>Dia 3 · km 80 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.6014" lon="-56.0979"><name>⛽ Cuiabá / Várzea Grande</name><desc>Dia 3 · km 230 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.0764" lon="-57.6819"><name>⛽ Cáceres</name><desc>Dia 3 · km 445 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.857" lon="-58.4619"><name>⛽ Porto Esperidião</name><desc>Dia 3 · km 550 · confiança: provável · Ponto extra — Cáceres → Pontes e Lacerda são ~230 km.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-14.4727" lon="-59.6001"><name>⛽ Nova Lacerda</name><desc>Dia 4 · km 95 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.6626" lon="-59.7856"><name>⛽ Comodoro</name><desc>Dia 4 · km 200 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.7406" lon="-60.1458"><name>⛽ Vilhena</name><desc>Dia 4 · km 325 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-11.6725" lon="-61.1936"><name>⛽ Pimenta Bueno</name><desc>Dia 4 · km 505 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-10.8853" lon="-61.9517"><name>⛽ Ji-Paraná</name><desc>Dia 4 · km 640 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-10.4389" lon="-62.4664"><name>⛽ Jaru</name><desc>Dia 4 · km 725 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-8.7612" lon="-63.9039"><name>⛽ Porto Velho</name><desc>Dia 5 · km 180 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-9.2556" lon="-64.3953"><name>⛽ Jaci-Paraná</name><desc>Dia 5 · km 270 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-9.689" lon="-65.354"><name>⛽ Vista Alegre do Abunã</name><desc>Dia 5 · km 395 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-9.772" lon="-66.356"><name>⛽ Extrema</name><desc>Dia 5 · km 525 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-9.7656" lon="-66.611"><name>⛽ Nova Califórnia</name><desc>Dia 5 · km 555 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-10.573" lon="-67.677"><name>⛽ Capixaba</name><desc>Dia 6 · km 80 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-11.0064" lon="-68.745"><name>⛽ Brasiléia / Epitaciolândia</name><desc>Dia 6 · km 235 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-10.9409" lon="-69.5738"><name>⛽ Assis Brasil (último posto BR)</name><desc>Dia 6 · km 340 · confiança: provável · Encher tanque antes de atravessar.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-10.948" lon="-69.58"><name>🛂 Fronteira Assis Brasil–Iñapari</name><desc>Dia 6 · km 345</desc><sym>Flag, Red</sym></wpt>
+<wpt lat="-11.4095" lon="-69.4878"><name>⛽ Iberia</name><desc>Dia 6 · km 405 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.991" lon="-70.369"><name>⛽ Mazuko</name><desc>Dia 7 · km 175 · confiança: provável · O roadbook não citava Mazuko — é o ponto mais confiável do trecho.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.231" lon="-70.751"><name>⛽ Quince Mil</name><desc>Dia 7 · km 230 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.629" lon="-71.388"><name>⛽ Ocongate</name><desc>Dia 7 · km 370 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.688" lon="-71.624"><name>⛽ Urcos</name><desc>Dia 7 · km 420 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.54" lon="-72.694"><name>⛽ Curahuasi</name><desc>Dia 10 · km 125 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.6339" lon="-72.8814"><name>⛽ Abancay</name><desc>Dia 10 · km 195 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.6556" lon="-73.3872"><name>⛽ Andahuaylas</name><desc>Dia 10 · km 330 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.518" lon="-73.723"><name>⛽ Chincheros</name><desc>Dia 10 · km 410 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.982" lon="-74.72"><name>⛽ Lircay</name><desc>Dia 11 · km 150 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.787" lon="-74.973"><name>⛽ Huancavelica</name><desc>Dia 11 · km 230 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.499" lon="-74.997"><name>⛽ Izcuchaca</name><desc>Dia 11 · km 300 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.056" lon="-75.287"><name>⛽ Chupaca</name><desc>Dia 12 · km 15 · confiança: certo · Encher o tanque aqui.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-12.459" lon="-75.917"><name>⛽ Yauyos</name><desc>Dia 12 · km 130 · confiança: suposição · Possivelmente venda informal (galão).</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.0775" lon="-76.387"><name>⛽ San Vicente de Cañete</name><desc>Dia 13 · km 35 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-13.4099" lon="-76.1323"><name>⛽ Chincha Alta</name><desc>Dia 13 · km 90 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-14.0678" lon="-75.7286"><name>⛽ Ica / Huacachina</name><desc>Dia 13 · km 195 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-14.534" lon="-75.185"><name>⛽ Palpa</name><desc>Dia 13 · km 285 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.86" lon="-74.249"><name>⛽ Chala</name><desc>Dia 14 · km 165 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.209" lon="-73.612"><name>⛽ Atico</name><desc>Dia 14 · km 255 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.624" lon="-72.711"><name>⛽ Camaná</name><desc>Dia 14 · km 385 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.526" lon="-71.825"><name>⛽ Repartición</name><desc>Dia 14 · km 500 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.837" lon="-71.088"><name>⛽ Imata</name><desc>Dia 16 · km 100 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.698" lon="-70.608"><name>⛽ Santa Lucía</name><desc>Dia 16 · km 170 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-15.5" lon="-70.1333"><name>⛽ Juliaca</name><desc>Dia 16 · km 240 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.087" lon="-69.638"><name>⛽ Ilave</name><desc>Dia 17 · km 60 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.565" lon="-69.04"><name>⛽ Desaguadero (lado Peru)</name><desc>Dia 17 · km 160 · confiança: provável · Último grifo peruano.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-16.568" lon="-69.037"><name>🛂 Fronteira Desaguadero</name><desc>Dia 17 · km 160</desc><sym>Flag, Red</sym></wpt>
+<wpt lat="-17.236" lon="-67.921"><name>⛽ Patacamaya</name><desc>Dia 18 · km 100 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.97" lon="-67.112"><name>⛽ Oruro</name><desc>Dia 18 · km 245 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.9" lon="-66.77"><name>⛽ Challapata</name><desc>Dia 18 · km 375 · confiança: provável · Encher tanque + galões. Daqui até Uyuni não conte com nada.</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.5836" lon="-65.7531"><name>⛽ Potosí</name><desc>Dia 20 · km 235 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.205" lon="-65.181"><name>⛽ Aiquile</name><desc>Dia 21 · km 180 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.118" lon="-64.217"><name>⛽ Mataral</name><desc>Dia 21 · km 300 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.179" lon="-63.874"><name>⛽ Samaipata</name><desc>Dia 21 · km 400 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.656" lon="-62.72"><name>⛽ Pailón</name><desc>Dia 22 · km 55 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.535" lon="-61.95"><name>⛽ Pozo del Tigre</name><desc>Dia 22 · km 140 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-17.846" lon="-60.742"><name>⛽ San José de Chiquitos</name><desc>Dia 22 · km 280 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.332" lon="-59.759"><name>⛽ Roboré</name><desc>Dia 22 · km 405 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.818" lon="-58.554"><name>⛽ El Carmen Rivero Tórrez</name><desc>Dia 22 · km 550 · confiança: suposição</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-18.962" lon="-57.799"><name>⛽ Puerto Suárez / Quijarro</name><desc>Dia 22 · km 640 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.001" lon="-57.727"><name>🛂 Fronteira Quijarro–Corumbá</name><desc>Dia 22 · km 650</desc><sym>Flag, Red</sym></wpt>
+<wpt lat="-20.24" lon="-56.378"><name>⛽ Miranda</name><desc>Dia 23 · km 215 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-20.483" lon="-55.804"><name>⛽ Aquidauana / Anastácio</name><desc>Dia 23 · km 290 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-20.4431" lon="-53.7592"><name>⛽ Ribas do Rio Pardo</name><desc>Dia 24 · km 95 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-20.4452" lon="-52.879"><name>⛽ Água Clara</name><desc>Dia 24 · km 195 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-20.7849" lon="-51.7007"><name>⛽ Três Lagoas</name><desc>Dia 24 · km 325 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-19.7275" lon="-50.1957"><name>⛽ Iturama</name><desc>Dia 24 · km 530 · confiança: provável</desc><sym>Gas Station</sym></wpt>
+<wpt lat="-20.0247" lon="-48.9406"><name>⛽ Frutal</name><desc>Dia 24 · km 675 · confiança: certo</desc><sym>Gas Station</sym></wpt>
+<rte><name>Dia 01 · 15/10 · Governador Valadares → Uberlândia</name><desc>Primeiro dia. Ritmo constante — não compensar atraso com velocidade.</desc>
+  <rtept lat="-18.8511" lon="-41.9495"><name>Governador Valadares</name></rtept>
+  <rtept lat="-19.619" lon="-43.2269"><name>Itabira</name></rtept>
+  <rtept lat="-19.9167" lon="-43.9345"><name>Belo Horizonte (Anel)</name></rtept>
+  <rtept lat="-19.736" lon="-45.2525"><name>Bom Despacho</name></rtept>
+  <rtept lat="-19.5902" lon="-46.9438"><name>Araxá</name></rtept>
+  <rtept lat="-19.7472" lon="-47.9381"><name>Uberaba</name></rtept>
+  <rtept lat="-18.9186" lon="-48.2772"><name>Uberlândia</name></rtept>
+</rte>
+<rte><name>Dia 02 · 16/10 · Uberlândia → Rondonópolis</name><desc>Fadiga acumulada do dia anterior. Reforçar checagem de pneus, freios e bagagem.</desc>
+  <rtept lat="-18.9186" lon="-48.2772"><name>Uberlândia</name></rtept>
+  <rtept lat="-18.4192" lon="-49.2151"><name>Itumbiara</name></rtept>
+  <rtept lat="-17.7923" lon="-50.9192"><name>Rio Verde</name></rtept>
+  <rtept lat="-17.8814" lon="-51.7144"><name>Jataí</name></rtept>
+  <rtept lat="-17.5654" lon="-52.5537"><name>Mineiros</name></rtept>
+  <rtept lat="-17.3147" lon="-53.2153"><name>Alto Araguaia</name></rtept>
+  <rtept lat="-16.4673" lon="-54.6372"><name>Rondonópolis</name></rtept>
+</rte>
+<rte><name>Dia 03 · 17/10 · Rondonópolis → Pontes e Lacerda</name><desc>Controlar autonomia e possibilidade de chuva na região.</desc>
+  <rtept lat="-16.4673" lon="-54.6372"><name>Rondonópolis</name></rtept>
+  <rtept lat="-15.9654" lon="-54.9683"><name>Jaciara</name></rtept>
+  <rtept lat="-15.6014" lon="-56.0979"><name>Cuiabá / Várzea Grande</name></rtept>
+  <rtept lat="-16.0764" lon="-57.6819"><name>Cáceres</name></rtept>
+  <rtept lat="-15.857" lon="-58.4619"><name>Porto Esperidião</name></rtept>
+  <rtept lat="-15.2261" lon="-59.3353"><name>Pontes e Lacerda</name></rtept>
+</rte>
+<rte><name>Dia 04 · 18/10 · Pontes e Lacerda → Ariquemes</name><desc>Um dos dias mais longos. Saída pontual às 05:00 é essencial.</desc>
+  <rtept lat="-15.2261" lon="-59.3353"><name>Pontes e Lacerda</name></rtept>
+  <rtept lat="-14.4727" lon="-59.6001"><name>Nova Lacerda</name></rtept>
+  <rtept lat="-13.6626" lon="-59.7856"><name>Comodoro</name></rtept>
+  <rtept lat="-12.7406" lon="-60.1458"><name>Vilhena</name></rtept>
+  <rtept lat="-11.6725" lon="-61.1936"><name>Pimenta Bueno</name></rtept>
+  <rtept lat="-10.8853" lon="-61.9517"><name>Ji-Paraná</name></rtept>
+  <rtept lat="-10.4389" lon="-62.4664"><name>Jaru</name></rtept>
+  <rtept lat="-9.9133" lon="-63.0408"><name>Ariquemes</name></rtept>
+</rte>
+<rte><name>Dia 05 · 19/10 · Ariquemes → Rio Branco</name><desc>Último grande ponto de apoio no Brasil. Revisão completa das 4 motos em Rio Branco.</desc>
+  <rtept lat="-9.9133" lon="-63.0408"><name>Ariquemes</name></rtept>
+  <rtept lat="-8.7612" lon="-63.9039"><name>Porto Velho</name></rtept>
+  <rtept lat="-9.2556" lon="-64.3953"><name>Jaci-Paraná</name></rtept>
+  <rtept lat="-9.689" lon="-65.354"><name>Vista Alegre do Abunã</name></rtept>
+  <rtept lat="-9.772" lon="-66.356"><name>Extrema</name></rtept>
+  <rtept lat="-9.7656" lon="-66.611"><name>Nova Califórnia</name></rtept>
+  <rtept lat="-9.9747" lon="-67.81"><name>Rio Branco</name></rtept>
+</rte>
+<rte><name>Dia 06 · 20/10 · Rio Branco → Puerto Maldonado</name><desc>Fronteira Brasil–Peru em Assis Brasil / Iñapari. Tratar o dia inteiro como travessia.</desc>
+  <rtept lat="-9.9747" lon="-67.81"><name>Rio Branco</name></rtept>
+  <rtept lat="-10.573" lon="-67.677"><name>Capixaba</name></rtept>
+  <rtept lat="-11.0064" lon="-68.745"><name>Brasiléia / Epitaciolândia</name></rtept>
+  <rtept lat="-10.9409" lon="-69.5738"><name>Assis Brasil (último posto BR)</name></rtept>
+  <rtept lat="-11.4095" lon="-69.4878"><name>Iberia</name></rtept>
+  <rtept lat="-12.5933" lon="-69.1891"><name>Puerto Maldonado</name></rtept>
+</rte>
+<rte><name>Dia 07 · 21/10 · Puerto Maldonado → Cusco</name><desc>Grande ganho de altitude (selva → passo acima de 4.700 m → Cusco). Ritmo conservador.</desc>
+  <rtept lat="-12.5933" lon="-69.1891"><name>Puerto Maldonado</name></rtept>
+  <rtept lat="-12.991" lon="-70.369"><name>Mazuko</name></rtept>
+  <rtept lat="-13.231" lon="-70.751"><name>Quince Mil</name></rtept>
+  <rtept lat="-13.629" lon="-71.388"><name>Ocongate</name></rtept>
+  <rtept lat="-13.688" lon="-71.624"><name>Urcos</name></rtept>
+  <rtept lat="-13.532" lon="-71.9675"><name>Cusco</name></rtept>
+</rte>
+<rte><name>Dia 10 · 24/10 · Cusco → Ayacucho</name><desc>Rota PE-3S: Cusco → Abancay → Andahuaylas → Chincheros → Ayacucho. Risco de chuva e derrumbes.</desc>
+  <rtept lat="-13.532" lon="-71.9675"><name>Cusco</name></rtept>
+  <rtept lat="-13.54" lon="-72.694"><name>Curahuasi</name></rtept>
+  <rtept lat="-13.6339" lon="-72.8814"><name>Abancay</name></rtept>
+  <rtept lat="-13.6556" lon="-73.3872"><name>Andahuaylas</name></rtept>
+  <rtept lat="-13.518" lon="-73.723"><name>Chincheros</name></rtept>
+  <rtept lat="-13.1588" lon="-74.2232"><name>Ayacucho</name></rtept>
+</rte>
+<rte><name>Dia 11 · 25/10 · Ayacucho → Huancayo</name><desc>Via Julcamarca → Lircay → Huancavelica → Izcuchaca. [Provável] Asfaltado: o trecho Huallapampa–Julcamarca–Secclla–Lircay foi inaugurado e Huancavelica–Lircay (78 km) foi pavimentado em 2015–2017.</desc>
+  <rtept lat="-13.1588" lon="-74.2232"><name>Ayacucho</name></rtept>
+  <rtept lat="-13.013" lon="-74.444"><name>Julcamarca</name></rtept>
+  <rtept lat="-12.982" lon="-74.72"><name>Lircay</name></rtept>
+  <rtept lat="-12.787" lon="-74.973"><name>Huancavelica</name></rtept>
+  <rtept lat="-12.499" lon="-74.997"><name>Izcuchaca</name></rtept>
+  <rtept lat="-12.0651" lon="-75.2049"><name>Huancayo</name></rtept>
+</rte>
+<rte><name>Dia 12 · 26/10 · Huancayo → Lunahuaná</name><desc>Huancayo → Chupaca → Yauyos → vale do rio Cañete → Lunahuaná.</desc>
+  <rtept lat="-12.0651" lon="-75.2049"><name>Huancayo</name></rtept>
+  <rtept lat="-12.056" lon="-75.287"><name>Chupaca</name></rtept>
+  <rtept lat="-12.459" lon="-75.917"><name>Yauyos</name></rtept>
+  <rtept lat="-12.96" lon="-76.14"><name>Lunahuaná</name></rtept>
+</rte>
+<rte><name>Dia 13 · 27/10 · Lunahuaná → Nazca</name><desc>Passagem por Ica / Huacachina antes de Nazca.</desc>
+  <rtept lat="-12.96" lon="-76.14"><name>Lunahuaná</name></rtept>
+  <rtept lat="-13.0775" lon="-76.387"><name>San Vicente de Cañete</name></rtept>
+  <rtept lat="-13.4099" lon="-76.1323"><name>Chincha Alta</name></rtept>
+  <rtept lat="-14.0678" lon="-75.7286"><name>Ica / Huacachina</name></rtept>
+  <rtept lat="-14.534" lon="-75.185"><name>Palpa</name></rtept>
+  <rtept lat="-14.8355" lon="-74.9387"><name>Nazca</name></rtept>
+</rte>
+<rte><name>Dia 14 · 28/10 · Nazca → Arequipa</name><desc>Panamericana Sul pelo litoral. Vento lateral e areia na pista.</desc>
+  <rtept lat="-14.8355" lon="-74.9387"><name>Nazca</name></rtept>
+  <rtept lat="-15.86" lon="-74.249"><name>Chala</name></rtept>
+  <rtept lat="-16.209" lon="-73.612"><name>Atico</name></rtept>
+  <rtept lat="-16.624" lon="-72.711"><name>Camaná</name></rtept>
+  <rtept lat="-16.526" lon="-71.825"><name>Repartición</name></rtept>
+  <rtept lat="-16.409" lon="-71.5375"><name>Arequipa</name></rtept>
+</rte>
+<rte><name>Dia 16 · 30/10 · Arequipa → Puno</name><desc>Subida até o altiplano (~4.500 m). Frio, vento e hidratação.</desc>
+  <rtept lat="-16.409" lon="-71.5375"><name>Arequipa</name></rtept>
+  <rtept lat="-15.837" lon="-71.088"><name>Imata</name></rtept>
+  <rtept lat="-15.698" lon="-70.608"><name>Santa Lucía</name></rtept>
+  <rtept lat="-15.5" lon="-70.1333"><name>Juliaca</name></rtept>
+  <rtept lat="-15.8402" lon="-70.0219"><name>Puno</name></rtept>
+</rte>
+<rte><name>Dia 17 · 31/10 · Puno → La Paz</name><desc>Fronteira Peru–Bolívia em Desaguadero. Formulário SIVETUR (249/A) para cada moto.</desc>
+  <rtept lat="-15.8402" lon="-70.0219"><name>Puno</name></rtept>
+  <rtept lat="-16.087" lon="-69.638"><name>Ilave</name></rtept>
+  <rtept lat="-16.565" lon="-69.04"><name>Desaguadero (lado Peru)</name></rtept>
+  <rtept lat="-16.499" lon="-68.146"><name>La Paz</name></rtept>
+</rte>
+<rte><name>Dia 18 · 01/11 · La Paz → Uyuni</name><desc>Trecho remoto e de altitude (~3.700 m o dia todo).</desc>
+  <rtept lat="-16.499" lon="-68.146"><name>La Paz</name></rtept>
+  <rtept lat="-17.236" lon="-67.921"><name>Patacamaya</name></rtept>
+  <rtept lat="-17.97" lon="-67.112"><name>Oruro</name></rtept>
+  <rtept lat="-18.9" lon="-66.77"><name>Challapata</name></rtept>
+  <rtept lat="-20.46" lon="-66.825"><name>Uyuni</name></rtept>
+</rte>
+<rte><name>Dia 20 · 03/11 · Uyuni → Sucre</name><desc>Conferir condição da estrada Uyuni–Potosí–Sucre antes da saída.</desc>
+  <rtept lat="-20.46" lon="-66.825"><name>Uyuni</name></rtept>
+  <rtept lat="-19.5836" lon="-65.7531"><name>Potosí</name></rtept>
+  <rtept lat="-19.0478" lon="-65.2595"><name>Sucre</name></rtept>
+</rte>
+<rte><name>Dia 21 · 04/11 · Sucre → Santa Cruz de la Sierra</name><desc>Sucre → Aiquile → Mataral → Samaipata → Santa Cruz.</desc>
+  <rtept lat="-19.0478" lon="-65.2595"><name>Sucre</name></rtept>
+  <rtept lat="-18.205" lon="-65.181"><name>Aiquile</name></rtept>
+  <rtept lat="-18.118" lon="-64.217"><name>Mataral</name></rtept>
+  <rtept lat="-18.179" lon="-63.874"><name>Samaipata</name></rtept>
+  <rtept lat="-17.7833" lon="-63.1821"><name>Santa Cruz de la Sierra</name></rtept>
+</rte>
+<rte><name>Dia 22 · 05/11 · Santa Cruz de la Sierra → Corumbá</name><desc>Fronteira Bolívia–Brasil em Puerto Quijarro / Corumbá. Não deixar a travessia para o fim do dia.</desc>
+  <rtept lat="-17.7833" lon="-63.1821"><name>Santa Cruz de la Sierra</name></rtept>
+  <rtept lat="-17.656" lon="-62.72"><name>Pailón</name></rtept>
+  <rtept lat="-17.535" lon="-61.95"><name>Pozo del Tigre</name></rtept>
+  <rtept lat="-17.846" lon="-60.742"><name>San José de Chiquitos</name></rtept>
+  <rtept lat="-18.332" lon="-59.759"><name>Roboré</name></rtept>
+  <rtept lat="-18.818" lon="-58.554"><name>El Carmen Rivero Tórrez</name></rtept>
+  <rtept lat="-18.962" lon="-57.799"><name>Puerto Suárez / Quijarro</name></rtept>
+  <rtept lat="-19.0092" lon="-57.6533"><name>Corumbá</name></rtept>
+</rte>
+<rte><name>Dia 23 · 06/11 · Corumbá → Campo Grande</name><desc>BR-262 pelo Pantanal. Atenção a animais na pista e, em época seca, fumaça de queimadas.</desc>
+  <rtept lat="-19.0092" lon="-57.6533"><name>Corumbá</name></rtept>
+  <rtept lat="-20.24" lon="-56.378"><name>Miranda</name></rtept>
+  <rtept lat="-20.483" lon="-55.804"><name>Aquidauana / Anastácio</name></rtept>
+  <rtept lat="-20.4697" lon="-54.6201"><name>Campo Grande</name></rtept>
+</rte>
+<rte><name>Dia 24 · 07/11 · Campo Grande → Uberaba</name><desc>Etapa muito longa com mais de 10.000 km acumulados — atenção redobrada à fadiga.</desc>
+  <rtept lat="-20.4697" lon="-54.6201"><name>Campo Grande</name></rtept>
+  <rtept lat="-20.4431" lon="-53.7592"><name>Ribas do Rio Pardo</name></rtept>
+  <rtept lat="-20.4452" lon="-52.879"><name>Água Clara</name></rtept>
+  <rtept lat="-20.7849" lon="-51.7007"><name>Três Lagoas</name></rtept>
+  <rtept lat="-19.7275" lon="-50.1957"><name>Iturama</name></rtept>
+  <rtept lat="-20.0247" lon="-48.9406"><name>Frutal</name></rtept>
+  <rtept lat="-19.7472" lon="-47.9381"><name>Uberaba</name></rtept>
+</rte>
+<rte><name>Dia 25 · 08/11 · Uberaba → Governador Valadares</name><desc>Último dia, também muito longo. Fadiga acumulada é o principal risco — sem pressa no retorno.</desc>
+  <rtept lat="-19.7472" lon="-47.9381"><name>Uberaba</name></rtept>
+  <rtept lat="-19.5902" lon="-46.9438"><name>Araxá</name></rtept>
+  <rtept lat="-19.736" lon="-45.2525"><name>Bom Despacho</name></rtept>
+  <rtept lat="-19.9167" lon="-43.9345"><name>Belo Horizonte (Anel)</name></rtept>
+  <rtept lat="-19.619" lon="-43.2269"><name>Itabira</name></rtept>
+  <rtept lat="-18.8511" lon="-41.9495"><name>Governador Valadares</name></rtept>
+</rte>
+</gpx>

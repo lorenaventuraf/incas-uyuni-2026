@@ -1,0 +1,43 @@
+EXPEDIÇÃO INCAS & UYUNI 2026 — site do roteiro
+Node Data · versão 08/10/2026
+
+O QUE TEM NESTA PASTA
+  index.html, app.js, style.css, data.js, samap.js, vendor/  -> o site
+  gerar-rotas.html                                           -> gera o traçado real (routes.js)
+  incas-uyuni-2026.gpx                                       -> rota para OsmAnd / BMW Connected
+  LEIA-ME.txt                                                -> este arquivo
+
+PASSO 1 — GERAR O TRAÇADO REAL (uma vez, ~1 minuto)
+  1. Descompacte a pasta no computador.
+  2. Dê dois cliques em gerar-rotas.html (abre no navegador).
+  3. Clique em "Gerar" e espere os 21 dias.
+  4. Clique em "Baixar routes.js" e salve o arquivo DENTRO desta pasta, ao lado do index.html.
+  5. Dias em vermelho no relatório: o km real ficou >15% diferente do roteiro. Abra o site e confira
+     no mapa se a estrada escolhida faz sentido (principalmente dias 10, 11, 12 e 21).
+  Se a página não conseguir buscar (erro de rede), o site funciona do mesmo jeito, com linhas retas.
+
+PASSO 2 — PUBLICAR NO NETLIFY
+  1. Acesse https://app.netlify.com/drop (crie conta grátis se pedir).
+  2. Arraste a PASTA inteira para a página.
+  3. Em Site configuration > Change site name, troque para algo como "incas-uyuni-2026".
+  4. O link fica https://incas-uyuni-2026.netlify.app — mande para os pilotos e famílias.
+  Para atualizar depois: Deploys > arraste a pasta de novo.
+
+PASSO 3 — NO CELULAR DE CADA PILOTO (antes de sair)
+  - Abrir o link e "Adicionar à tela inicial".
+  - Instalar o OsmAnd (Android/iPhone), baixar os mapas OFFLINE de Brasil (MG, GO, MT, RO, AC, MS),
+    Peru e Bolívia, e importar o arquivo incas-uyuni-2026.gpx. No OsmAnd, durante a navegação:
+    "Buscar ao longo da rota" > Postos de combustível — funciona sem internet.
+  - Testar um link "Waze" e um "Postos" de qualquer parada.
+
+COMO FUNCIONA O PROGRESSO
+  - Os ✓ de cada parada ficam salvos só no celular de quem marcou (não aparecem para os outros).
+  - Botão verde "Chegamos": abre o WhatsApp com a mensagem pronta; escolham o grupo da família.
+    O link enviado abre o site direto no dia certo.
+
+ALTERAR O ROTEIRO
+  Tudo está em data.js (cidades, km, avisos). Editar, salvar, gerar rotas de novo e republicar.
+
+AVISO
+  Plano, não garantia. Coordenadas = centro das cidades. Postos marcados "Suposição" não são confiáveis.
+  Conferir estrada, combustível e fronteira na véspera e na manhã de cada trecho.
