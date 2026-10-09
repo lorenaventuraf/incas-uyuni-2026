@@ -310,7 +310,7 @@ function frameInfo(m){
   const day = DAYS.find(x => x.d === m.day) || DAYS[0];
   const cc = (day.stops[m.stop_idx] || {}).cc;
   const country = {BR:"Brasil", PE:"Peru", BO:"Bolívia"}[cc] || "";
-  return { title: `${m.stop_name}${country?" · "+country:""}`, sub: `Dia ${String(m.day).padStart(2,"0")} · ${new Date(m.taken_at).toLocaleDateString("pt-BR")} · Expedição Incas & Uyuni 2026` };
+  return { title: `${m.stop_name}${country?" · "+country:""}`, sub: `Dia ${String(m.day).padStart(2,"0")} · ${day.date ? day.date.split("-").reverse().join("/") : new Date(m.taken_at).toLocaleDateString("pt-BR")} · Expedição Incas & Uyuni 2026` };
 }
 function openViewer(id){
   const m = findMedia(id); if (!m) return;
