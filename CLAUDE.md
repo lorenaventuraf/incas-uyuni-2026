@@ -6,7 +6,7 @@ Cliente: Valério (piloto-cliente da Node Data). Responsável Node Data: Eduardo
 
 ## Publicação
 - GitHub `lorenaventuraf/incas-uyuni-2026` → Netlify (deploy automático da branch `main`, sem build, raiz = publish dir).
-- URL: https://incas-uyuni-2026-gs.netlify.app
+- URL: https://lorenaventuraf.github.io/incas-uyuni-2026/ (GitHub Pages, branch main, raiz). O Netlify ficou sem créditos em 09/10 e congelou numa versão antiga.
 - Link de piloto: `https://incas-uyuni-2026-gs.netlify.app/?piloto=<CÓDIGO>` (o código NÃO fica no repositório; está na função `public.is_pilot()` no Supabase).
 
 ## Arquivos
