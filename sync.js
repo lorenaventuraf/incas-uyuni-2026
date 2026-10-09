@@ -127,16 +127,21 @@ async function refreshCounts(){
 }
 
 /* ---------- leitura compartilhada (com cache para offline) ---------- */
-const shared = { checkins: [], media: [] };
-try{ const c = JSON.parse(LS.get("cache") || "{}"); shared.checkins = c.checkins || []; shared.media = c.media || []; }catch(e){}
+const shared = { checkins: [], media: [], messages: [], reactions: {} };
+try{ const c = JSON.parse(LS.get("cache") || "{}"); shared.checkins = c.checkins || []; shared.media = c.media || []; shared.messages = c.messages || []; shared.reactions = c.reactions || {}; }catch(e){}
 async function pull(){
   if (!navigator.onLine) return;
   try{
-    const [ck, md] = await Promise.all([
-      rest("checkins?select=client_id,day,stop_idx,stop_name,kind,pilot,note,happened_at&order=happened_at.asc&limit=2000"),
-      rest("media?select=client_id,day,stop_idx,stop_name,pilot,kind,path,width,height,caption,taken_at&order=taken_at.asc&limit=3000")
+    const since = encodeURIComponent(C.since || "2000-01-01");
+    const [ck, md, ms, rx] = await Promise.all([
+      rest(`checkins?select=client_id,day,stop_idx,stop_name,kind,pilot,note,happened_at&happened_at=gte.${since}&order=happened_at.asc&limit=2000`),
+      rest(`media?select=client_id,day,stop_idx,stop_name,pilot,kind,path,width,height,caption,taken_at&taken_at=gte.${since}&order=taken_at.asc&limit=3000`),
+      rest(`messages?select=client_id,name,body,from_pilot,created_at&created_at=gte.${since}&order=created_at.desc&limit=300`),
+      rest(`reactions?select=media_client_id,emoji&created_at=gte.${since}&limit=10000`)
     ]);
-    shared.checkins = ck || []; shared.media = md || [];
+    shared.checkins = ck || []; shared.media = md || []; shared.messages = ms || [];
+    const agg = {}; for (const r of (rx || [])){ (agg[r.media_client_id] = agg[r.media_client_id] || {heart:0,clap:0,moto:0})[r.emoji]++; }
+    shared.reactions = agg;
     LS.set("cache", JSON.stringify(shared)); emit();
   }catch(e){ /* mantém cache */ }
 }
@@ -148,6 +153,31 @@ async function removeCheckin(client_id){
   await rest("checkins?client_id=eq." + encodeURIComponent(client_id), { method:"DELETE" });
   shared.checkins = shared.checkins.filter(c => c.client_id !== client_id); LS.set("cache", JSON.stringify(shared)); emit();
 }
+function device(){ let d = LS.get("device"); if (!d){ d = uid(); LS.set("device", d); } return d; }
+async function postMessage(name, body){
+  const row = { client_id: uid(), name: name.trim().slice(0,40), body: body.trim().slice(0,280), from_pilot: Pilot.isPilot() && !!Pilot.name() };
+  try{
+    await rest("messages", { method:"POST", body: JSON.stringify(row), headers: {"Content-Type":"application/json", Prefer:"return=minimal"} });
+  }catch(e){
+    const m = (e.message.match(/"message":"([^"]+)"/) || [])[1];
+    throw new Error(m && !/violates|policy/.test(m) ? m : (navigator.onLine ? "Não foi possível enviar agora" : "Sem internet — tente quando tiver sinal"));
+  }
+  row.created_at = new Date().toISOString(); shared.messages.unshift(row); LS.set("cache", JSON.stringify(shared)); emit();
+}
+async function deleteMessage(client_id){
+  await rest("messages?client_id=eq." + encodeURIComponent(client_id), { method:"DELETE" });
+  shared.messages = shared.messages.filter(m => m.client_id !== client_id); LS.set("cache", JSON.stringify(shared)); emit();
+}
+async function react(media_client_id, emoji){
+  const key = "rx:" + media_client_id + ":" + emoji;
+  if (LS.get(key)) return false;
+  await rest("reactions?on_conflict=media_client_id,emoji,device", { method:"POST", body: JSON.stringify({media_client_id, emoji, device: device()}),
+    headers: {"Content-Type":"application/json", Prefer:"resolution=ignore-duplicates,return=minimal"} });
+  LS.set(key, "1");
+  const r = shared.reactions[media_client_id] = shared.reactions[media_client_id] || {heart:0,clap:0,moto:0}; r[emoji]++;
+  LS.set("cache", JSON.stringify(shared)); emit(); return true;
+}
+const reacted = (id, e) => !!LS.get("rx:" + id + ":" + e);
 async function checkCode(code){
   const r = await fetch(C.url + "/rest/v1/rpc/is_pilot", { method:"POST", headers: Object.assign(headers({"Content-Type":"application/json"}), {"x-trip-key": code.trim().toLowerCase()}), body: "{}" });
   return r.ok ? (await r.json()) === true : null;
@@ -158,6 +188,7 @@ document.addEventListener("visibilitychange", () => { if (document.visibilitySta
 setInterval(() => { if (document.visibilityState === "visible"){ flush(); pull(); } }, 60000);
 try{ if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); }catch(e){}
 
-window.SYNC = { Pilot, addCheckin, addMedia, flush, pull, pending, removeCheckin, checkCode, status, shared, publicUrl, onChange: f => listeners.add(f), LS };
+window.SYNC = { Pilot, addCheckin, addMedia, flush, pull, pending, removeCheckin, checkCode, status, shared, publicUrl, onChange: f => listeners.add(f), LS,
+  postMessage, deleteMessage, react, reacted };
 refreshCounts().then(() => { emit(); flush(); pull(); });
 })();

@@ -36,18 +36,43 @@
   </div>
 </section>
 
-<nav class="days" id="days" aria-label="Dias da expedição"></nav>
+<nav class="days pilot-only" id="days" aria-label="Dias da expedição"></nav>
 
 <main class="wrap">
-  <article id="day" class="day"></article>
+  <section class="panel where family-only" id="onde"></section>
+  <article id="day" class="day pilot-only"></article>
 
   <section class="panel" id="diario">
-    <div class="panel-h"><h2>Diário da expedição</h2><a class="lnk" href="imprimir.html">🖨 Versão para imprimir</a></div>
-    <p class="small muted">Check-ins e fotos dos pilotos, para todos acompanharem. Toque numa foto para ver e compartilhar com a moldura da expedição.</p>
+    <div class="panel-h"><h2>Diário da expedição</h2><a class="lnk pilot-only" href="imprimir.html">🖨 Versão para imprimir</a></div>
+    <p class="small muted">Registros e fotos dos pilotos ao longo do caminho. Toque numa foto para ampliar, reagir e compartilhar.</p>
     <div id="diario-list"></div>
   </section>
 
-  <section class="panel" id="detail-map-panel">
+  <section class="panel" id="mural">
+    <h2>Mural de recados</h2>
+    <p class="small muted">Mande uma força para os pilotos — eles leem durante a viagem.</p>
+    <form id="mural-form" class="mform" autocomplete="on">
+      <input name="name" maxlength="40" placeholder="Seu nome" required>
+      <textarea name="body" maxlength="280" rows="2" placeholder="Seu recado" required></textarea>
+      <div class="mrow"><span class="cnt small muted">0/280</span><button class="btn" type="submit">Enviar recado</button></div>
+    </form>
+    <ul class="wall" id="mural-list"></ul>
+  </section>
+
+  <section class="panel family-only" id="resumo">
+    <h2>O roteiro</h2>
+    <ol class="resumo" id="resumo-list"></ol>
+  </section>
+
+  <section class="panel family-only small">
+    <h2>Como acompanhar</h2>
+    <ul class="plain">
+      <li>Esta página se atualiza sozinha. Em trechos sem sinal (serra, altiplano, Pantanal), os registros chegam quando eles voltam a ter internet — normalmente à noite, no hotel.</li>
+      <li>Para ter como app no celular: no iPhone, Safari → Compartilhar → "Adicionar à Tela de Início". No Android, Chrome → menu ⋮ → "Instalar app".</li>
+    </ul>
+  </section>
+
+  <section class="panel pilot-only" id="detail-map-panel">
     <div class="panel-h">
       <h2>Mapa detalhado do dia</h2>
       <button class="btn ghost" id="loadmap">Carregar mapa</button>
@@ -56,7 +81,7 @@
     <div id="lmap" class="lmap" hidden></div>
   </section>
 
-  <section class="panel" id="bolivia">
+  <section class="panel pilot-only" id="bolivia">
     <h2>Bolívia — combustível e bloqueios</h2>
     <ul class="check" data-group="bo">
       <li><label><input type="checkbox" data-k="bo1"> <span>Encher tanque <b>e galões</b> no lado peruano de Desaguadero</span></label></li>
@@ -74,7 +99,7 @@
     </div>
   </section>
 
-  <section class="panel" id="borders">
+  <section class="panel pilot-only" id="borders">
     <h2>Fronteiras</h2>
     <div class="grid3">
       <div class="card"><h3>Brasil → Peru · dia 06</h3><p class="small muted">Assis Brasil → Iñapari</p><ul class="small"><li>Passaporte ou RG aceito + CNH + PID</li><li>CRLV/CRLV-e + prova de propriedade</li><li>Autorização formal se não for o proprietário</li><li>CIT + SOAT peruano</li><li>Seguro com cobertura no Peru</li></ul></div>
@@ -83,7 +108,7 @@
     </div>
   </section>
 
-  <section class="panel" id="help">
+  <section class="panel pilot-only" id="help">
     <h2>Assistência e emergência</h2>
     <h3 class="sub">BMW Motorrad no caminho</h3>
     <div id="bmw" class="list"></div>
@@ -96,7 +121,7 @@
     <p class="small muted">Regra de ouro: formação fixa (líder, intermediários, ferrolho). Se uma moto parar, o grupo inteiro para.</p>
   </section>
 
-  <section class="panel legend">
+  <section class="panel legend pilot-only">
     <h2>Como ler esta página</h2>
     <ul class="small">
       <li><span class="tag c">Certo</span> cidade com posto conhecido. <span class="tag p">Provável</span> deve ter, confirmar na hora. <span class="tag s">Suposição</span> não conte com ele.</li>

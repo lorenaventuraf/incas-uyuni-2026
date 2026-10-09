@@ -38,6 +38,7 @@ const isDone = (d,i) => checkinsAt(d,i).length > 0;
 const dayDone = day => isDone(day.d, day.stops.length-1);
 const hm = iso => { const t = new Date(iso); return t.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); };
 const KIND = {passou:"passou", abasteceu:"abasteceu", chegou:"chegou", fronteira:"cruzou a fronteira"};
+document.body.classList.toggle("family", !PILOT());
 
 /* ---------- links ---------- */
 const ll = s => `${s.lat},${s.lng}`;
@@ -97,6 +98,17 @@ function renderStatus(){
 function renderStats(){
   const km = DAYS.reduce((a,d) => a + (R && R.km && R.km[d.d] ? R.km[d.d] : d.km), 0);
   const done = DAYS.filter(dayDone).length;
+  if (!PILOT()){
+    const kmDone = DAYS.filter(dayDone).reduce((a,d) => a + (R && R.km && R.km[d.d] ? R.km[d.d] : d.km), 0);
+    const cur = todayIdx >= 0 ? todayIdx+1 : (todayIso < DAYS[0].date ? 0 : 25);
+    const cc = new Set(S.shared.checkins.map(c => ((DAYS.find(x => x.d===c.day)||{stops:[]}).stops[c.stop_idx]||{}).cc).filter(Boolean));
+    $("#stats").innerHTML =
+      `<div><b>${Math.round(kmDone).toLocaleString("pt-BR")} km</b><span>rodados de ~${Math.round(km/100)/10} mil</span></div>`+
+      `<div><b>${cur ? `Dia ${cur}` : "Em breve"}</b><span>${cur ? "de 25" : "saída "+fmtDate(DAYS[0].date)}</span></div>`+
+      `<div><b>${cc.size || 0} de 3</b><span>países</span></div>`+
+      `<div><b>${S.shared.media.length}</b><span>fotos e vídeos</span></div>`;
+    return;
+  }
   $("#stats").innerHTML =
     `<div><b>${Math.round(km).toLocaleString("pt-BR")} km</b><span>${R?"traçado real":"estimativa"}</span></div>`+
     `<div><b>25 dias</b><span>${fmtDate(DAYS[0].date)} – ${fmtDate(DAYS[24].date)}</span></div>`+
@@ -124,6 +136,7 @@ function renderSA(){
     if (d.km === 0) return;
     const pts = lineOf(d).map(p => proj(p[0],p[1]).map(v => v.toFixed(1)).join(",")).join(" ");
     const col = PROF[d.profile].c === "#1c2530" ? "#e9e1d2" : PROF[d.profile].c;
+    if (!PILOT()){ s += `<polyline class="seg${dayDone(d)?" done fam":" todo"}" data-i="${i}" stroke="${dayDone(d)?"#f0c35a":"#6f7c8c"}" points="${pts}"/>`; return; }
     s += `<polyline class="seg${dayDone(d)?" done":""}${i===sel?" sel":""}" data-i="${i}" stroke="${i===sel?"#f0c35a":col}" points="${pts}"/>`;
     s += `<polyline class="seg-hit" data-i="${i}" points="${pts}"/>`;
   });
@@ -136,9 +149,14 @@ function renderSA(){
       const left = ["La Paz","Uyuni","Arequipa","Cusco","Governador Valadares"].includes(e.n);
       s += `<text class="cname" x="${x+(left?-9:9)}" y="${y+4}" text-anchor="${left?"end":"start"}">${nm}</text>`; }
   });
+  const last = lastCheckin();
+  if (last){ const st = (DAYS.find(x => x.d===last.day)||{stops:[]}).stops[last.stop_idx]; if (st){ const [x,y] = proj(st.lat, st.lng); s += `<circle class="here-pulse" cx="${x}" cy="${y}" r="9"/><circle class="here" cx="${x}" cy="${y}" r="6"/>`; } }
   s += `</svg>`;
   const box = $("#samap"); box.innerHTML = s;
-  box.querySelectorAll("[data-i]").forEach(el => el.addEventListener("click", () => select(+el.dataset.i, true)));
+  box.querySelectorAll("[data-i]").forEach(el => el.addEventListener("click", () => {
+    if (PILOT()) return select(+el.dataset.i, true);
+    const e = document.querySelector(`.dentry[data-day="${DAYS[+el.dataset.i].d}"]`); if (e) e.scrollIntoView({behavior:"smooth", block:"start"});
+  }));
 }
 
 /* ---------- faixa de dias ---------- */
@@ -320,8 +338,14 @@ function openViewer(id){
   v.innerHTML = `<div class="vbox">
     ${m.kind==="video" ? `<video src="${m.url}" controls playsinline></video>` : `<img src="${m.url}" alt="">`}
     <div class="vmeta"><b>${esc(m.stop_name)}</b> · Dia ${m.day} · ${esc(m.pilot)} · ${new Date(m.taken_at).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}${m.pending?" · ⏳ aguardando envio":""}</div>
+    ${m.pending ? "" : `<div class="rx">${[["heart","❤️"],["clap","👏"],["moto","🏍"]].map(([k,e]) => { const r = S.shared.reactions[m.client_id] || {}; return `<button class="rxb${S.reacted(m.client_id,k)?" on":""}" data-rx="${k}">${e} <span>${r[k]||0}</span></button>`; }).join("")}</div>`}
     <div class="actions">${m.kind==="photo" ? `<button class="btn" id="vshare">Compartilhar com moldura</button>` : `<a class="btn" href="${m.url}" target="_blank" rel="noopener" download>Abrir vídeo</a>`}<button class="btn ghost" data-close>Fechar</button></div></div>`;
   v.classList.add("on");
+  v.querySelectorAll("[data-rx]").forEach(btn => btn.addEventListener("click", async () => {
+    if (btn.classList.contains("on")) return;
+    try{ btn.classList.add("on"); const sp = btn.querySelector("span"); sp.textContent = (+sp.textContent||0) + 1; await S.react(m.client_id, btn.dataset.rx); }
+    catch(e){ btn.classList.remove("on"); toast(navigator.onLine ? "Não foi possível reagir agora" : "Sem internet"); }
+  }));
   const b = document.getElementById("vshare");
   if (b) b.addEventListener("click", async () => {
     b.disabled = true; b.textContent = "Preparando…";
@@ -342,9 +366,10 @@ function renderDiary(){
     const d = DAYS.find(x => x.d === n) || {from:"",to:"",date:""}, g = byDay.get(n);
     const ck = g.ck.sort((a,b) => a.happened_at < b.happened_at ? -1 : 1);
     const ph = mediaAt(n, null);
-    return `<div class="dentry"><div class="dh"><b>Dia ${String(n).padStart(2,"0")}</b> · ${d.date?fmtDate(d.date):""} · ${esc(d.from)}${d.to&&d.to!==d.from?" → "+esc(d.to):""}<button class="lnk" data-goto="${n}">ver dia</button></div>
+    return `<div class="dentry" data-day="${n}"><div class="dh"><b>Dia ${String(n).padStart(2,"0")}</b> · ${d.date?fmtDate(d.date):""} · ${esc(d.from)}${d.to&&d.to!==d.from?" → "+esc(d.to):""}${PILOT()?`<button class="lnk" data-goto="${n}">ver dia</button>`:""}</div>
       <ul class="cks">${ck.map(c => `<li>${c.pending?"⏳":"✓"} ${hm(c.happened_at)} · <b>${esc(c.pilot)}</b> ${KIND[c.kind]||c.kind} em ${esc(c.stop_name)}${c.note?` — ${esc(c.note)}`:""}</li>`).join("")}</ul>
-      ${ph.length?`<div class="thumbs">${ph.map(m => `<button class="th${m.kind==="video"?" vid":""}" data-view="${esc(m.client_id)}" style="background-image:url('${m.thumb}')">${m.pending?"<i>⏳</i>":""}</button>`).join("")}</div>`:""}</div>`;
+      ${ph.length?`<div class="thumbs big">${ph.map(m => { const r = S.shared.reactions[m.client_id]; const n = r ? r.heart+r.clap+r.moto : 0;
+        return `<button class="th${m.kind==="video"?" vid":""}" data-view="${esc(m.client_id)}" style="background-image:url('${m.thumb}')">${m.pending?"<i>⏳</i>":""}${n?`<em>❤️ ${n}</em>`:""}</button>`; }).join("")}</div>`:""}</div>`;
   }).join("");
   el.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => openViewer(b.dataset.view)));
   el.querySelectorAll("[data-goto]").forEach(b => b.addEventListener("click", () => select(DAYS.findIndex(x => x.d === +b.dataset.goto), true)));
@@ -357,7 +382,8 @@ function renderSyncBar(){
   } else {
     const pend = st.pending, vids = st.videosWaiting;
     el.innerHTML = `<span>🏍 <b>${esc(S.Pilot.name())}</b> · ${!navigator.onLine?"sem sinal · ":""}${pend ? `⏳ ${pend} aguardando envio` : "✓ tudo enviado"}${st.lastError && pend ? ` · <span class="err">${esc(st.lastError)}</span>`:""}</span>
-      ${vids?`<button class="btn sm" id="sendvids">Enviar ${vids} vídeo${vids>1?"s":""} (use Wi-Fi)</button>`:""}<button class="lnk" id="iampilot">trocar</button>`;
+      ${unseen()?`<button class="btn sm wa" id="gomsgs">💬 ${unseen()} recado${unseen()>1?"s":""} novo${unseen()>1?"s":""}</button>`:""}${vids?`<button class="btn sm" id="sendvids">Enviar ${vids} vídeo${vids>1?"s":""} (use Wi-Fi)</button>`:""}<button class="lnk" id="iampilot">trocar</button>`;
+    const gm = document.getElementById("gomsgs"); if (gm) gm.addEventListener("click", () => { document.getElementById("mural").scrollIntoView({behavior:"smooth"}); markSeen(); renderSyncBar(); });
     const sv = document.getElementById("sendvids"); if (sv) sv.addEventListener("click", () => { toast("Enviando vídeos… mantenha o app aberto"); S.flush({videos:true}); });
   }
   document.getElementById("iampilot").addEventListener("click", pilotDialog);
@@ -380,10 +406,69 @@ function pilotDialog(){
     S.Pilot.setCode(code); S.Pilot.setName(name); v.classList.remove("on"); toast("Modo piloto ativado"); refresh(); S.flush();
   });
 }
+function lastCheckin(){
+  const all = S.shared.checkins.concat(queue.filter(q => q.type==="checkin").map(q => q.row));
+  return all.reduce((a,c) => !a || c.happened_at > a.happened_at ? c : a, null);
+}
+function renderWhere(){
+  const el = document.getElementById("onde"); if (!el) return;
+  const last = lastCheckin();
+  const td = todayIdx >= 0 ? DAYS[todayIdx] : null;
+  let h = "";
+  if (last){
+    const d = DAYS.find(x => x.d === last.day) || {};
+    const when = new Date(last.happened_at);
+    const sameDay = when.toDateString() === new Date().toDateString();
+    h += `<div class="where-k">Último registro</div><div class="where-t">${{chegou:"Chegaram em",abasteceu:"Abasteceram em",fronteira:"Cruzaram a fronteira em",passou:"Passaram por"}[last.kind]||"Em"} <b>${esc(last.stop_name)}</b></div>
+      <div class="where-s">${sameDay?"hoje":when.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"})} às ${hm(last.happened_at)} · registrado por ${esc(last.pilot)} · Dia ${last.day}${d.to?` (${esc(d.from)} → ${esc(d.to)})`:""}</div>`;
+  } else if (todayIso < DAYS[0].date){
+    h += `<div class="where-k">Preparativos</div><div class="where-t">Saída em <b>${fmtDate(DAYS[0].date)}</b> de ${esc(DAYS[0].from)}</div><div class="where-s">Os registros e fotos dos pilotos vão aparecer aqui durante a viagem.</div>`;
+  } else h += `<div class="where-k">A caminho</div><div class="where-t">Ainda sem registro hoje</div><div class="where-s">Em trechos sem sinal, os registros chegam quando eles voltam a ter internet.</div>`;
+  if (td) h += `<div class="where-today">Plano de hoje · Dia ${td.d}: ${td.km ? `${esc(td.from)} → ${esc(td.to)} · ~${td.km} km` : `dia livre em ${esc(td.to)}`}</div>`;
+  el.innerHTML = h;
+}
+function renderSummary(){
+  const el = document.getElementById("resumo-list"); if (!el) return;
+  el.innerHTML = DAYS.map((d,i) => `<li class="${dayDone(d)?"done":""}${i===todayIdx?" today":""}"><span class="rd">${String(d.d).padStart(2,"0")} · ${fmtDate(d.date)}</span><span class="rt">${d.km ? `${esc(d.from)} → ${esc(d.to)}` : `Dia livre · ${esc(d.to)}`}</span>${dayDone(d)?`<span class="rok">✓</span>`:i===todayIdx?`<span class="rnow">hoje</span>`:""}</li>`).join("");
+}
+function renderWall(){
+  const el = document.getElementById("mural-list"); if (!el) return;
+  const ms = S.shared.messages;
+  el.innerHTML = ms.length ? ms.slice(0, wallMax).map(m => `<li class="${m.from_pilot?"fp":""}"><div class="mh"><b>${m.from_pilot?"🏍 ":""}${esc(m.name)}</b><span>${new Date(m.created_at).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}</span>${PILOT()?`<button class="lnk del" data-delmsg="${esc(m.client_id)}" aria-label="Apagar recado">apagar</button>`:""}</div><p>${esc(m.body)}</p></li>`).join("")
+    + (ms.length > wallMax ? `<li class="more-li"><button class="lnk" id="wallmore">ver recados mais antigos</button></li>` : "")
+    : `<li class="empty">Nenhum recado ainda. Seja o primeiro a mandar uma força para eles!</li>`;
+  el.querySelectorAll("[data-delmsg]").forEach(b => b.addEventListener("click", async () => {
+    if (!confirm("Apagar este recado para todos?")) return;
+    try{ await S.deleteMessage(b.dataset.delmsg); }catch(e){ toast("Precisa de internet para apagar"); }
+  }));
+  const wm = document.getElementById("wallmore"); if (wm) wm.addEventListener("click", () => { wallMax += 30; renderWall(); });
+  const f = document.getElementById("mural-form");
+  if (f && !f.dataset.ready){
+    f.dataset.ready = "1";
+    f.name.value = PILOT() ? S.Pilot.name() : (S.LS.get("wallname") || "");
+    const cnt = f.querySelector(".cnt"); f.body.addEventListener("input", () => cnt.textContent = `${f.body.value.length}/280`);
+    f.addEventListener("submit", async e => {
+      e.preventDefault(); const btn = f.querySelector("button[type=submit]");
+      const name = f.name.value.trim(), body = f.body.value.trim(); if (!name || !body) return;
+      const lastSent = +(S.LS.get("wallsent") || 0); if (Date.now() - lastSent < 20000){ toast("Aguarde alguns segundos para mandar outro recado"); return; }
+      btn.disabled = true;
+      try{ await S.postMessage(name, body); S.LS.set("wallname", name); S.LS.set("wallsent", String(Date.now())); f.body.value = ""; cnt.textContent = "0/280"; toast("Recado enviado! 🏍"); }
+      catch(err){ toast(err.message); }
+      btn.disabled = false;
+    });
+  }
+  if (PILOT()){ const sec = document.getElementById("mural"); if (sec && isVisible(sec)) markSeen(); }
+}
+let wallMax = 30;
+const isVisible = el => { const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; };
+function markSeen(){ const top = S.shared.messages[0]; if (top) S.LS.set("msgseen", top.created_at); }
+function unseen(){ const seen = S.LS.get("msgseen") || ""; return S.shared.messages.filter(m => m.created_at > seen && !(m.from_pilot && m.name === S.Pilot.name())).length; }
+addEventListener("scroll", () => { if (PILOT()){ const sec = document.getElementById("mural"); if (sec && isVisible(sec) && unseen()){ markSeen(); renderSyncBar(); } } }, {passive:true});
 let rt = null;
 async function refresh(){
   queue = await S.pending();
-  renderSyncBar(); renderChips(); renderStats(); renderSA(); renderDay(); renderDiary();
+  document.body.classList.toggle("family", !PILOT());
+  renderSyncBar(); renderChips(); renderStats(); renderSA(); renderDay(); renderDiary(); renderWhere(); renderSummary(); renderWall();
 }
 S.onChange(() => { clearTimeout(rt); rt = setTimeout(refresh, 150); });
 
