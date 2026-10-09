@@ -26,6 +26,15 @@ Cliente: Valério (piloto-cliente da Node Data). Responsável Node Data: Eduardo
 - Bucket público `media`, pasta `trip2026/dia-XX/`, limite 50 MB, só imagem/vídeo.
 - Vídeos: o app aceita até 45 MB e só envia quando o piloto toca "Enviar vídeos (use Wi-Fi)".
 - Plano grátis: ~1 GB de storage no total. Acompanhar uso durante a viagem.
+- Tabela `messages` (mural): qualquer um envia (nome + até 280 caracteres, limite de frequência por trigger); só piloto apaga.
+- Tabela `reactions` (❤️ 👏 🏍 por foto, uma por aparelho).
+- `CFG.since` em `config.js`: o app só mostra registros a partir dessa data. Usado para "zerar" testes sem apagar nada.
+  **Na véspera da saída (14/10 à noite), atualizar para a hora atual.**
+
+## Modos da página
+- Sem código de piloto → `body.family`: versão resumida (onde estão, mapa com progresso, diário, mural, roteiro resumido).
+  Elementos só de piloto têm a classe `pilot-only`; só da família, `family-only`.
+- Com código + nome → versão completa, com aviso de recados novos.
 
 ## Decisões já tomadas (não reabrir sem motivo)
 - Sem login: código de piloto + nome. Família só abre o link (somente leitura).
