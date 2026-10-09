@@ -1,6 +1,6 @@
 /* Service worker: o app abre sem internet. Arquivos do site: serve do cache e atualiza em segundo plano.
    Fotos públicas do Supabase: guardadas depois da primeira visualização. API: sempre rede. */
-const V = "iu26-v5";
+const V = "iu26-v6";
 const SHELL = ["./","index.html","imprimir.html","app.js","style.css","data.js","samap.js","config.js","sync.js","media.js",
   "manifest.webmanifest","vendor/leaflet.js","vendor/leaflet.css","img/nodedata-logo.png","img/icon-192.png","img/icon-180.png","img/icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
@@ -16,11 +16,15 @@ self.addEventListener("fetch", e => {
     return; // REST: rede direta
   }
   if (u.origin === location.origin || u.hostname.includes("fonts.g")){
+    // Rede primeiro: com internet sempre a versão mais nova; sem internet, a cópia guardada.
     e.respondWith(caches.open(V).then(async c => {
-      const key = r.mode === "navigate" ? "index.html" : r;
-      const hit = await c.match(r, {ignoreSearch: r.mode === "navigate"}) || (r.mode === "navigate" ? await c.match("index.html") : null);
-      const net = fetch(r).then(res => { if (res.ok && (res.type === "basic" || res.type === "cors")) c.put(r, res.clone()); return res; }).catch(() => hit);
-      return hit || net;
+      try{
+        const res = await fetch(r, {cache: "no-store"});
+        if (res.ok && (res.type === "basic" || res.type === "cors")) c.put(r.mode === "navigate" ? "index.html" : r, res.clone());
+        return res;
+      }catch(err){
+        return (await c.match(r, {ignoreSearch: true})) || (r.mode === "navigate" ? await c.match("index.html") : Response.error());
+      }
     }));
   }
 });

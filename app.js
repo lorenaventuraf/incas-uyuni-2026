@@ -189,7 +189,7 @@ function stopHTML(day, s, i){
       ${(cks.length||mds.length) ? `<p class="snote ok">${cks.length?`✓ ${cks.length} check-in${cks.length>1?"s":""}`:""}${cks.length&&mds.length?" · ":""}${mds.length?`📷 ${mds.length}`:""}</p>`:""}
       ${fuelGap ? `<p class="gap${fuelGap>T.autonomy.rule?" over":""}">⛽ Próximo abastecimento em ~${fuelGap} km${fuelGap>T.autonomy.rule?" — acima da regra de 200 km":""}</p>` : ""}
       <div class="sx">
-        ${PILOT() ? `<div class="pact"><button class="btn sm${done?" ghost":""}" data-ck="${i}" data-kind="${ckKind}">✓ ${tickLabel}</button><label class="btn sm ghost">📷 Mídia<input type="file" accept="image/*,video/*" multiple hidden data-media="${i}"></label></div>` : ""}
+        ${PILOT() ? `<div class="pact"><button class="btn sm${done?" ghost":""}" data-ck="${i}" data-kind="${ckKind}">✓ ${tickLabel}</button><label class="btn sm ghost">📷 Fotos<input type="file" accept="image/*" multiple hidden data-media="${i}"></label></div>` : ""}
         ${ckList}${thumbs}
         <div class="links">
           <a href="${L.waze(s)}" target="_blank" rel="noopener">🚗 Waze</a>
@@ -304,7 +304,7 @@ async function handleFiles(d, i, files, inp){
   for (const f of list){
     try{
       if (f.type.startsWith("video/")){
-        if (f.size > window.CFG.maxVideoMB*1024*1024){ skipped++; continue; }
+        skipped++; continue; // vídeos ficam na galeria do celular (limite do plano grátis)
         await S.addMedia({day:d.d, stop_idx:i, stop_name:d.stops[i].n, kind:"video", blob:f, thumb: await videoThumb(f), type: f.type || "video/quicktime"});
         vids++; ok++;
       } else {
@@ -315,7 +315,7 @@ async function handleFiles(d, i, files, inp){
     }catch(e){ skipped++; }
   }
   inp.value = "";
-  toast(`${ok} guardado${ok!==1?"s":""}${vids?` (${vids} vídeo${vids>1?"s":""} aguardando Wi-Fi)`:""}${skipped?` · ${skipped} ignorado${skipped>1?"s":""} (vídeo acima de ${window.CFG.maxVideoMB} MB ou arquivo inválido)`:""}`);
+  toast(`${ok} foto${ok!==1?"s":""} guardada${ok!==1?"s":""}${skipped?` · ${skipped} ignorado${skipped>1?"s":""} (vídeos ficam só na galeria do celular)`:""}`);
 }
 function findMedia(id){
   const m = S.shared.media.find(x => x.client_id === id);
