@@ -6,6 +6,12 @@
 <title>Incas &amp; Uyuni 2026</title>
 <meta name="description" content="Roteiro dia a dia da expedição de moto Governador Valadares → Peru → Bolívia → Governador Valadares.">
 <meta name="theme-color" content="#1c2530">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Incas Uyuni">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/leaflet.css">
@@ -21,6 +27,7 @@
     <div id="status" class="status"></div>
   </div>
 </header>
+<div class="syncbar" id="syncbar"></div>
 
 <section class="hero">
   <div class="wrap">
@@ -33,6 +40,12 @@
 
 <main class="wrap">
   <article id="day" class="day"></article>
+
+  <section class="panel" id="diario">
+    <div class="panel-h"><h2>Diário da expedição</h2><a class="lnk" href="imprimir.html">🖨 Versão para imprimir</a></div>
+    <p class="small muted">Check-ins e fotos dos pilotos, para todos acompanharem. Toque numa foto para ver e compartilhar com a moldura da expedição.</p>
+    <div id="diario-list"></div>
+  </section>
 
   <section class="panel" id="detail-map-panel">
     <div class="panel-h">
@@ -52,6 +65,8 @@
       <li><label><input type="checkbox" data-k="bo4"> <span>Toda noite: checar bloqueios (links "Estrada" de cada dia) e perguntar na recepção do hotel</span></label></li>
       <li><label><input type="checkbox" data-k="bo5"> <span>Nunca tentar furar bloqueio — esperar ou voltar</span></label></li>
       <li><label><input type="checkbox" data-k="bo6"> <span>Abastecer em todo posto com gasolina, mesmo com meio tanque</span></label></li>
+      <li><label><input type="checkbox" data-k="bo7"> <span>Posto sem gasolina? Perguntar nas <b>vendinhas e mercearias</b> — vendem em galão (dica do grupo)</span></label></li>
+      <li><label><input type="checkbox" data-k="bo8"> <span>Gasolina de galão: passar por <b>funil com filtro ou pano</b> — pode vir com água ou sujeira</span></label></li>
     </ul>
     <div class="note">
       <p><b>Preço para estrangeiro:</b> turistas com veículo próprio pagam gasolina e diesel a preço internacional. Postos de fronteira são obrigados a vender (DS 5106). Recusa: denunciar na ANH, linha gratuita <a href="tel:800106006">800 10 6006</a>. <span class="tag p">Provável</span></p>
@@ -86,7 +101,8 @@
     <ul class="small">
       <li><span class="tag c">Certo</span> cidade com posto conhecido. <span class="tag p">Provável</span> deve ter, confirmar na hora. <span class="tag s">Suposição</span> não conte com ele.</li>
       <li>Km são estimativas a partir do roadbook. As coordenadas são o centro de cada cidade, não do posto: use os botões "Postos perto" para achar o posto.</li>
-      <li>Os ✓ de progresso ficam salvos <b>só neste celular</b>. Para avisar a família, use o botão verde "Chegamos" de cada dia.</li>
+      <li>Check-ins e fotos dos pilotos aparecem para todos que abrirem o link. Sem sinal, ficam guardados no celular (⏳) e sobem sozinhos quando a internet voltar — no iPhone, basta abrir o app com sinal.</li>
+      <li>Para instalar como app: no iPhone, Safari → botão Compartilhar → "Adicionar à Tela de Início". No Android, Chrome → menu ⋮ → "Instalar app".</li>
       <li>Botões de busca abrem o Google Maps ao vivo (horário, avaliações, se está aberto).</li>
     </ul>
   </section>
@@ -99,10 +115,14 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
+<script src="sync.js"></script>
+<script src="media.js"></script>
 <script src="data.js"></script>
 <script src="samap.js"></script>
 <script src="routes.js" onerror="window.ROUTES=null"></script>
 <script src="vendor/leaflet.js"></script>
 <script src="app.js"></script>
+<script>if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));</script>
 </body>
 </html>

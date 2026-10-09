@@ -128,6 +128,36 @@ h3.sub{font-size:14px;margin:12px 0 6px}
 .leaflet-popup-content{font:13px/1.45 Inter,sans-serif;margin:10px 12px}
 .leaflet-popup-content .links a{font-size:12px;padding:3px 8px}
 
+/* barra de sincronização / piloto */
+.syncbar{background:#26313d;color:#e9e1d2;font-size:13px;padding:8px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.syncbar .err{color:#f3a596}
+.lnk{background:none;border:0;padding:0;color:inherit;text-decoration:underline;font:inherit;font-size:13px;cursor:pointer}
+.syncbar .lnk{color:#f0c35a}
+.pact{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 8px}
+.pact .btn{cursor:pointer}
+.snote.ok{color:var(--green);font-weight:600}
+.cks{list-style:none;padding:0;margin:6px 0;font-size:13px}
+.cks li{padding:2px 0}
+.thumbs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.th{width:72px;height:72px;border-radius:8px;border:0;background:#ddd center/cover no-repeat;position:relative;cursor:pointer;padding:0}
+.th.vid::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:22px;text-shadow:0 1px 4px #000}
+.th i{position:absolute;right:3px;bottom:2px;font-style:normal;font-size:12px}
+.more{align-self:center;font-size:13px;color:var(--muted)}
+.dentry{border-top:1px solid var(--line);padding:10px 0}
+.dentry .dh{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;font-size:14px}
+.dentry .lnk{margin-left:auto;color:var(--teal)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px;font-size:14px;opacity:0;transition:.25s;z-index:3000;max-width:calc(100% - 32px);pointer-events:none}
+#toast.on{opacity:1;transform:translateX(-50%)}
+#viewer,#pdlg{position:fixed;inset:0;background:rgba(10,14,20,.88);z-index:2500;display:none;align-items:center;justify-content:center;padding:16px}
+#viewer.on,#pdlg.on{display:flex}
+.vbox{background:var(--card);border-radius:12px;padding:12px;max-width:720px;width:100%;max-height:100%;overflow:auto}
+.vbox img,.vbox video{width:100%;max-height:68vh;object-fit:contain;background:#000;border-radius:8px;display:block}
+.vmeta{font-size:13px;margin:8px 0}
+.pbox h3{margin-bottom:6px}
+.pbox label{display:block;font-size:13px;font-weight:600;margin:10px 0}
+.pbox input{display:block;width:100%;margin-top:4px;padding:10px;border:1px solid var(--line);border-radius:8px;font:16px Inter,sans-serif}
+.err{color:var(--red)}
+
 @media (max-width:720px){
   .grid3{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
