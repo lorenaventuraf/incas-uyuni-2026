@@ -5,9 +5,10 @@ Governador Valadares → Peru → Bolívia → Governador Valadares, de 15/10 a 
 Cliente: Valério (piloto-cliente da Node Data). Responsável Node Data: Eduardo (comercial, não técnico — explicar passo a passo).
 
 ## Publicação
-- GitHub `lorenaventuraf/incas-uyuni-2026` → Netlify (deploy automático da branch `main`, sem build, raiz = publish dir).
-- URL: https://lorenaventuraf.github.io/incas-uyuni-2026/ (GitHub Pages, branch main, raiz). O Netlify ficou sem créditos em 09/10 e congelou numa versão antiga.
-- Link de piloto: `https://incas-uyuni-2026-gs.netlify.app/?piloto=<CÓDIGO>` (o código NÃO fica no repositório; está na função `public.is_pilot()` no Supabase).
+- GitHub `lorenaventuraf/incas-uyuni-2026` → **Cloudflare Pages** (deploy automático da branch `main`, sem build, raiz).
+- URL oficial: https://incas-uyuni.pages.dev
+- O Netlify (incas-uyuni-2026-gs.netlify.app) ficou sem créditos em 09/10 e congelou numa versão antiga — não divulgar.
+- Link de piloto: `https://incas-uyuni.pages.dev/?piloto=<CÓDIGO>` (o código NÃO fica no repositório; está na função `public.is_pilot()` no Supabase).
 
 ## Arquivos
 - `data.js` — TODO o roteiro (dias, paradas, km, avisos). Mudança de rota = editar aqui.
@@ -24,7 +25,7 @@ Cliente: Valério (piloto-cliente da Node Data). Responsável Node Data: Eduardo
 ## Supabase (projeto `doqtppldrwyowzifmrqt`, sa-east-1, plano grátis)
 - Tabelas `checkins` e `media` (leitura pública; insert/delete só com header `x-trip-key` válido → `public.is_pilot()`).
 - Bucket público `media`, pasta `trip2026/dia-XX/`, limite 50 MB, só imagem/vídeo.
-- Vídeos: o app aceita até 45 MB e só envia quando o piloto toca "Enviar vídeos (use Wi-Fi)".
+- Vídeos: removidos do app (limite de tráfego do plano grátis). Só fotos.
 - Plano grátis: ~1 GB de storage no total. Acompanhar uso durante a viagem.
 - Tabela `messages` (mural): qualquer um envia (nome + até 280 caracteres, limite de frequência por trigger); só piloto apaga.
 - Tabela `reactions` (❤️ 👏 🏍 por foto, uma por aparelho).
