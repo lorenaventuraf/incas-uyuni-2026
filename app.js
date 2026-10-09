@@ -434,7 +434,7 @@ function renderSummary(){
 function renderWall(){
   const el = document.getElementById("mural-list"); if (!el) return;
   const ms = S.shared.messages;
-  el.innerHTML = ms.length ? ms.slice(0, wallMax).map(m => `<li class="${m.from_pilot?"fp":""}"><div class="mh"><b>${m.from_pilot?"🏍 ":""}${esc(m.name)}</b><span>${new Date(m.created_at).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}</span>${PILOT()?`<button class="lnk del" data-delmsg="${esc(m.client_id)}" aria-label="Apagar recado">apagar</button>`:""}</div><p>${esc(m.body)}</p></li>`).join("")
+  el.innerHTML = ms.length ? ms.slice(0, wallMax).map(m => `<li class="${m.from_pilot?"fp":""}"><div class="mh"><b>${esc(m.name)}</b><span class="who">${m.from_pilot?"🏍 piloto":"amigos e família"}</span><span class="t">${new Date(m.created_at).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}</span>${PILOT()?`<button class="lnk del" data-delmsg="${esc(m.client_id)}" aria-label="Apagar recado">apagar</button>`:""}</div><p>${esc(m.body)}</p></li>`).join("")
     + (ms.length > wallMax ? `<li class="more-li"><button class="lnk" id="wallmore">ver recados mais antigos</button></li>` : "")
     : `<li class="empty">Nenhum recado ainda. Seja o primeiro a mandar uma força para eles!</li>`;
   el.querySelectorAll("[data-delmsg]").forEach(b => b.addEventListener("click", async () => {

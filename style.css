@@ -180,14 +180,25 @@ body:not(.family) .family-only{display:none!important}
 .mform{display:grid;gap:8px;margin:10px 0 6px}
 .mform input,.mform textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font:16px Inter,sans-serif;background:#fff;resize:vertical}
 .mrow{display:flex;justify-content:space-between;align-items:center}
-.wall{list-style:none;padding:0;margin:8px 0 0}
-.wall li{border-top:1px solid var(--line);padding:10px 0}
-.wall li.fp{background:#f6efe0;margin:0 -16px;padding:10px 16px}
-.wall .mh{display:flex;gap:8px;align-items:baseline;font-size:14px}
-.wall .mh span{font-size:12px;color:var(--muted)}
+/* mural em destaque: azul sóbrio; recados da família em branco, dos pilotos em areia */
+#mural{background:#edf2f7;border-left:6px solid #2f5d8a;box-shadow:0 1px 0 #d3dde8}
+#mural h2{color:#2f5d8a}
+#mural .mlegend{display:flex;gap:14px;font-size:12px;color:var(--ink2);margin:2px 0 6px}
+#mural .mlegend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+#mural .mform .btn{background:#2f5d8a;border-color:#2f5d8a}
+#mural .mform input,#mural .mform textarea{border-color:#c9d5e2}
+.wall{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
+.wall li{background:#fff;border:1px solid #d3dde8;border-left:4px solid #8fa9c4;border-radius:10px;padding:10px 12px}
+.wall li.fp{background:#f7f0e1;border-color:#e6d6b3;border-left-color:var(--gold)}
+.wall .mh{display:flex;gap:8px;align-items:baseline;font-size:14px;flex-wrap:wrap}
+.wall .mh b{color:#2f5d8a}
+.wall li.fp .mh b{color:#8a6420}
+.wall .who{font-size:11px;font-weight:600;border-radius:99px;padding:1px 7px;background:#e3eaf2;color:#2f5d8a}
+.wall li.fp .who{background:#efe1c2;color:#7a5410}
+.wall .mh span.t{font-size:12px;color:var(--muted)}
 .wall .del{margin-left:auto;color:var(--red);font-size:12px}
 .wall p{margin:4px 0 0;font-size:15px;white-space:pre-wrap;overflow-wrap:anywhere}
-.wall .empty,.wall .more-li{color:var(--muted);font-size:14px}
+.wall .empty,.wall .more-li{background:transparent;border:0;color:var(--muted);font-size:14px;padding:4px 0}
 .resumo{list-style:none;padding:0;margin:0}
 .resumo li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
 .resumo .rd{color:var(--muted);font-size:12px;min-width:76px;font-variant-numeric:tabular-nums}
