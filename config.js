@@ -7,5 +7,5 @@ window.CFG = {
   folder: "trip2026",
   maxVideoMB: 45,
   // Só mostra registros a partir daqui (zera os testes sem apagar nada). Atualizar na véspera da saída.
-  since: "2026-10-09T17:40:00Z"
+  since: "2026-10-09T21:06:30Z"
 };
