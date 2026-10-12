@@ -1,8 +1,8 @@
 /* Service worker: o app abre sem internet. Arquivos do site: serve do cache e atualiza em segundo plano.
    Fotos públicas do Supabase: guardadas depois da primeira visualização. API: sempre rede. */
-const V = "iu26-v10";
+const V = "iu26-v11";
 const SHELL = ["./","index.html","imprimir.html","app.js","style.css","data.js","samap.js","config.js","sync.js","media.js",
-  "manifest.webmanifest","vendor/leaflet.js","vendor/leaflet.css","img/nodedata-logo.png","img/icon-192.png","img/icon-180.png","img/icon-512.png"];
+  "manifest.webmanifest","vendor/leaflet.js","vendor/leaflet.css","img/nodedata-logo.png","img/mototrip-logo.png","img/icon-192.png","img/icon-180.png","img/icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("iu26-") && k !== V && k !== "iu26-media").map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {
