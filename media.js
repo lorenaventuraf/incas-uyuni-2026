@@ -40,8 +40,8 @@ function drawFrame(g, W, H, info){
   g.font = `500 ${Math.round(sh*0.22)}px Inter, "Helvetica Neue", Arial, sans-serif`;
   g.fillText(info.sub, x, y + sh*0.84);
   if (trip.complete && trip.naturalWidth){
-    const tw = Math.round(Math.min(W, H) * 0.34), th = tw * trip.naturalHeight / trip.naturalWidth, m = Math.round(Math.min(W, H) * 0.03);
-    g.save(); g.shadowColor = "rgba(0,0,0,.35)"; g.shadowBlur = Math.round(tw * 0.04);
+    const tw = Math.round(Math.min(W, H) * 0.24), th = tw * trip.naturalHeight / trip.naturalWidth, m = Math.round(Math.min(W, H) * 0.03);
+    g.save(); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = "high"; g.shadowColor = "rgba(0,0,0,.35)"; g.shadowBlur = Math.round(tw * 0.04);
     g.drawImage(trip, m, m, tw, th); g.restore();
   }
   if (logo.complete && logo.naturalWidth){
